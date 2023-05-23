@@ -1,57 +1,127 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-typescript" target="_blank" rel="noopener">typescript</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
+  <v-container class="kardiology-container">
+    <div class="kardiology-header">
+      <v-icon class="kardiology-icon"> </v-icon>
+      <h1 class="kardiology-title">
+        <v-icon style="color: #7a00cc" size="3rem">mdi-heart-pulse</v-icon
+        >Kardiology
+      </h1>
+    </div>
+
+    <p class="kardiology-subtitle">Create New Account</p>
+
+    <v-form>
+      <v-text-field
+        style="color: #7a00cc"
+        label="Username"
+        hint="Enter your email address"
+        class="custom-text-field"
+        required
+        filled
+      ></v-text-field>
+
+      <v-text-field
+        style="color: #7a00cc"
+        label="Password"
+        type="password"
+        required
+        filled
+        append-icon="mdi-eye-off"
+        hint="Enter your password"
+      ></v-text-field>
+      <v-text-field
+        style="color: #7a00cc"
+        label="Confirm Password"
+        type="password"
+        filled
+        append-icon="mdi-eye-off"
+        hint="Retype your password to confirm"
+        required
+      ></v-text-field>
+
+      <div class="kardiology-checkbox">
+        <v-checkbox color="#7a00cc" value="indigo" hide-details></v-checkbox>
+        <p style="font-size: small">
+          I agree to the Terms of Service and the Privacy Policy including the
+          Cookie Use statement.
+        </p>
+      </div>
+
+      <v-btn
+        class="kardiology-btn"
+        style="background-color: #7a00cc"
+        type="submit"
+        color="primary"
+        >Join Kardiology</v-btn
+      >
+      <p class="kardiology-login">Already a member? <a href="#">Login</a></p>
+    </v-form>
+  </v-container>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from "vue-property-decorator";
 
-@Component
-export default class HelloWorld extends Vue {
+@Component({
+  name: "KardiologySignup",
+})
+export default class KardiologySignup extends Vue {
   @Prop() private msg!: string;
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
+.kardiology-container {
+  width: 100%;
+  max-width: 800px;
+  padding: 5% 12% 5% 12%;
+  box-shadow: 0 2px 5px black;
+  border-radius: 8px;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+.kardiology-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+
+.kardiology-title {
+  color: #7a00cc;
+  font-size: 2rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
-a {
-  color: #42b983;
+
+.kardiology-subtitle {
+  color: #7a00cc;
+  margin: 1.5rem 0 1.5rem 0;
+  font-size: x-large;
+  font-weight: 600;
+}
+
+.kardiology-checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.kardiology-checkbox p {
+  padding: 21px 0 0 10px;
+  text-align: left;
+}
+
+.kardiology-btn {
+  margin-top: 1.5rem;
+  width: 100%;
+  color: black;
+  border-radius: 20px;
+}
+
+.kardiology-login {
+  margin-top: 1.5rem;
+}
+
+.custom-text-field .v-label {
+  transform: translateY(-10px) scale(0.75);
+  color: #7a00cc;
 }
 </style>
